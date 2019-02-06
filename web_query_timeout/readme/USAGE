@@ -1,0 +1,3 @@
+When a user composes a domain query in the Odoo web client, the configured time out is passed to Postgresql at query time. If the time out occurs, the user is notified in the web client and the search results are empty.
+
+The application manager can review the list of queries for which a time out has occurred through menu *Settings -> User Interface -> Query time outs*.

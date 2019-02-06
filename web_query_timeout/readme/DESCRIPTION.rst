@@ -1,0 +1,3 @@
+Due to the flexible and generic nature of the Odoo interface, it is possible for users to construct search queries that have a disastrously long query time on databases with very large tables (say, a hundred million records). Such queries can take several hours or longer, wasting valuable resources on the database server while no user is going to actually wait for the results that long.
+
+This module allows to insert a time out directive that is honoured by the Postgresql database server for search queries from the Odoo UI. When such a time out occurs, the user is notified by the web client. The search results will be empty. Queries that timed out are saved for review by the application manager.

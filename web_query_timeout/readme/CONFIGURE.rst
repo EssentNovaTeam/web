@@ -1,0 +1,1 @@
+The timeout can be configured by changing the value of the configuration parameter 'web_query_timeout.timeout'. The value is interpreted as a number of seconds. By default, the timeout is set to 420 seconds (i.e. 7 minutes).

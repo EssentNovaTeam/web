@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<openerp><data noupdate="1">
+    <record id="parameter_timeout" model="ir.config_parameter">
+        <field name="key">web_query_timeout.timeout</field>
+        <field name="value">420</field>
+    </record>
+</data></openerp>
