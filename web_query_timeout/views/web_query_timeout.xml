@@ -2,9 +2,10 @@
 <openerp><data>
 
     <record id="view_web_query_timeout_tree" model="ir.ui.view">
+        <field name="name">web.query.timeout.tree</field>
         <field name="model">web.query.timeout</field>
         <field name="arch" type="xml">
-            <tree string="Query time outs">
+            <tree string="Query time outs" create="false">
                 <field name="create_date"/>
                 <field name="create_uid"/>
                 <field name="model"/>
@@ -13,11 +14,31 @@
         </field>
     </record>
 
+    <record id="view_web_query_timeout_form" model="ir.ui.view">
+        <field name="name">web.query.timeout.form</field>
+        <field name="model">web.query.timeout</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="model"/>
+                    <field name="domain"/>
+                    <field name="groupby"/>
+                    <field name="fields_list"/>
+                    <field name="func_call"/>
+                </group>
+                <group>
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
     <record id="action_web_query_timeout" model="ir.actions.act_window">
         <field name="name">UI Query time outs</field>
         <field name="res_model">web.query.timeout</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="menu_web_query_timeout"
