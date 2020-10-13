@@ -2,18 +2,23 @@
 // @author Stefan Rijnhart <stefan.rijnhart@dynapps.nl>
 // @author Pieter Paulussen <pieter.paulussen@dynapps.be>
 // License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-
-openerp.web_query_timeout = function(instance) {
+openerp.web_query_timeout = function (instance) {
     instance.web.Query.include({
+        /* Apply statement timeout context */
+        init: function (model, fields) {
+            this._super.apply(this, arguments);
+            this._context['statement_timeout'] = true
+        },
         /* Catch magic value to emit a notification */
         _execute: function (options) {
-            return this._super(options).then(function (records){
+            return this._super(options).then(function (records) {
                 if (records === 'WebQueryTimeoutException') {
                     instance.web.notification.warn('Error', 'Query time out', true);
                     return [];
                 }
                 return records;
             });
-        }
+        },
+
     });
 };
